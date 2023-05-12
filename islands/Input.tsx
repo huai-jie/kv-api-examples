@@ -4,10 +4,10 @@ export default function Input() {
   const input = useRef<HTMLInputElement>(null);
   const add = useCallback(() => {
     if (!input.current) return;
-    fetch(`/?title=${input.current.value}`,{
+    fetch(`/?title=${input.current.value}`, {
       method: "POST",
       credentials: "same-origin",
-    })
+    });
   }, []);
   return (
     <div class="flex">
