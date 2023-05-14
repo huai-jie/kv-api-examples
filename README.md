@@ -1,4 +1,6 @@
-# fresh project
+# Deno KV API Example
+
+> Warning: this project is still work in progress.
 
 ### Usage
 
