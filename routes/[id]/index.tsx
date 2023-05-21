@@ -1,6 +1,7 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { Prism } from "@/utils/prism.ts";
 import { type Example, ExampleSnippet, parseExample } from "@/utils/example.ts";
+import Page from "@/components/Page.tsx";
 
 type Data = Example;
 
@@ -27,7 +28,7 @@ export default function examplePage(props: PageProps<Data>) {
   }
   const { data: example } = props;
   return (
-    <>
+    <Page title={`${example.title} - Deno KV Examples`}>
       <main class="max-w-screen-lg mx-auto p-4">
         <h1 class="mt-2 text-3xl font-bold">{example.title}</h1>
         {example.description && (
@@ -49,7 +50,7 @@ export default function examplePage(props: PageProps<Data>) {
           </div>
         ))}
       </main>
-    </>
+    </Page>
   );
 }
 
@@ -64,7 +65,7 @@ function SnippetComponent(props: {
   );
 
   return (
-    <div class="grid grid-cols-1 sm:grid-cols-5 gap-x-6  transition duration-150 ease-in">
+    <div class="grid grid-cols-1 sm:grid-cols-5 gap-x-6 transition duration-150 ease-in">
       <div class="py-4 text-gray-700 select-none col-span-2">
         {props.snippet.text}
       </div>

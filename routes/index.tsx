@@ -1,7 +1,6 @@
-import { Head } from "$fresh/runtime.ts";
-import Input from "@/islands/Input.tsx";
 import type { Handlers, PageProps } from "$fresh/server.ts";
 import { createItem, getAllItems, type Item } from "../utils/db.ts";
+import Page from "@/components/Page.tsx";
 
 export const handler: Handlers = {
   async GET(_req, ctx) {
@@ -18,10 +17,7 @@ export const handler: Handlers = {
 
 export default function Home(props: PageProps) {
   return (
-    <>
-      <Head>
-        <title>Fresh App</title>
-      </Head>
+    <Page title={`Deno KV API Example`} noSubtitle>
       <div class="p-4 mx-auto max-w-screen-md">
         <img
           src="/logo.svg"
@@ -33,12 +29,18 @@ export default function Home(props: PageProps) {
           Deno KV Example
         </h1>
         <ul class="list-disc">
-          {/* {props.data.items.map((item: { value: Item }) => {
+          {
+            /* {props.data.items.map((item: { value: Item }) => {
             return <li>{item.value.title}</li>;
-          })} */}
-          <li><a href="/basics" class="hover:underline text-blue-600">Get & Set</a></li>
+          })} */
+          }
+          <li>
+            <a href="/basics" class="hover:underline text-blue-600">
+              Get & Set
+            </a>
+          </li>
         </ul>
       </div>
-    </>
+    </Page>
   );
 }
